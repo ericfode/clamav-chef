@@ -47,7 +47,7 @@ template "#{node['clamav']['conf_dir']}/freshclam.conf" do
     bytecode: node['clamav']['bytecode']
   )
   if node['clamav']['freshclam']['enabled']
-    notifies :restart, "service[#{node['clamav']['freshclam']['service']}]",
+    notifies :restart, "poise_service[#{node['clamav']['freshclam']['service']}]",
              :delayed
   end
 end
