@@ -54,7 +54,7 @@ package 'clamav-freshclam' do
   version node['clamav']['version'] if node['clamav']['version']
   if node['clamav']['clamd']['enabled']
     notifies :restart,
-             "service[#{node['clamav']['clamd']['service']}]"
+             "poise_service[#{node['clamav']['clamd']['service']}]"
   end
   if node['clamav']['freshclam']['enabled']
     notifies :restart,
