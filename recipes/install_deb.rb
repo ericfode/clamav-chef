@@ -26,11 +26,11 @@ package 'clamav' do
   version node['clamav']['version'] if node['clamav']['version']
   if node['clamav']['clamd']['enabled']
     notifies :restart,
-             "service[#{node['clamav']['clamd']['service']}]"
+             "poise_service[#{node['clamav']['clamd']['service']}]"
   end
   if node['clamav']['freshclam']['enabled']
     notifies :restart,
-             "service[#{node['clamav']['freshclam']['service']}]"
+             "poise_service[#{node['clamav']['freshclam']['service']}]"
   end
 end
 
@@ -39,7 +39,7 @@ package 'clamav-daemon' do
   version node['clamav']['version'] if node['clamav']['version']
   if node['clamav']['clamd']['enabled']
     notifies :restart,
-             "service[#{node['clamav']['clamd']['service']}]"
+             "poise_service[#{node['clamav']['clamd']['service']}]"
   end
 end
 
@@ -58,7 +58,7 @@ package 'clamav-freshclam' do
   end
   if node['clamav']['freshclam']['enabled']
     notifies :restart,
-             "service[#{node['clamav']['freshclam']['service']}]"
+             "poise_service[#{node['clamav']['freshclam']['service']}]"
   end
 end
 
