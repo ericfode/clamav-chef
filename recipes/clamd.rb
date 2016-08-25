@@ -35,6 +35,6 @@ template "#{node['clamav']['conf_dir']}/clamd.conf" do
     bytecode: node['clamav']['bytecode']
   )
   if node['clamav']['clamd']['enabled']
-    notifies :restart, "service[#{node['clamav']['clamd']['service']}]"
+    notifies :restart, "poise_service[#{node['clamav']['clamd']['service']}]"
   end
 end
